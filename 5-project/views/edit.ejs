@@ -14,26 +14,26 @@
                 ← Go Back to Home
             </a>
 
-                <form class="space-y-4" action="/create" method="post">
+                <form class="space-y-4" action="/edit" method="post">
 
                     <div class="flex flex-col gap-4">
                         
                         <input 
                         type="text"
-                        placeholder="Previous name" name="Previous name"
+                        placeholder="Previous name" name="previous" value="<%= filename %>" 
                         class="w-1/4 px-4 py-3 rounded-md bg-gradient-to-r from-zinc-800 to-zinc-900 text-white placeholder-gray-400 outline-none border border-zinc-700 focus:ring-2 focus:ring-blue-500"
                         >
 
                         <input 
                         rows="3"
-                        placeholder="New Name" name="New Name"
+                        placeholder="New Name" name="new"
                         class="w-1/4 px-4 py-3 rounded-md bg-gradient-to-r from-zinc-800 to-zinc-900 text-white placeholder-gray-400 outline-none border border-zinc-700 focus:ring-2 focus:ring-blue-500 resize-none"
                         >
 
                         <button 
                         class="w-1/4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md transition duration-300"
                         >
-                        Edit file name
+                        Update name
                         </button>
                     </div>
 
