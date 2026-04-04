@@ -42,15 +42,36 @@
 
                         <% files.forEach(function(val){ %>
 
-                            <div class="task bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 backdrop-blur-md p-5 rounded-xl border border-zinc-700 shadow-lg">
+                            <!-- <div class="task bg-gradient-to-r from-zinc-800/80 to-zinc-900/80 backdrop-blur-md p-5 rounded-xl border border-zinc-700 shadow-lg">
                                 <h1 class="text-xl font-semibold text-white mb-2">
                                     <%=val%>
                                 </h1>
                                 <a href="/file/<%= val %>" class="text-blue-500 hover:text-blue-400 text-sm font-medium">
                                    Read More →
                                 </a>
+
+                                <a href="/edit" class="text-blue-500 hover:text-blue-400 text-sm font-medium">
+                                   edit
+                                </a>
+                            </div> -->
+                        <div class="task bg-gradient-to-r from-zinc-800/90 to-zinc-900/90 backdrop-blur-lg p-6 rounded-2xl border border-zinc-700 shadow-xl hover:shadow-2xl transition duration-300">
+                            <h1 class="text-xl font-semibold text-white mb-3">
+                                <%= val %>
+                            </h1>
+
+                            <div class="flex gap-4 mt-4">
+                                <a href="/file/<%= val %>" 
+                                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition">
+                                    Read More →
+                                </a>
+
+                                <a href="/edit/<%= val %>" 
+                                class="px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-white text-sm rounded-lg transition">
+                                    Edit
+                                </a>
                             </div>
 
+                        </div>
                         <% }) %>
 
                     <% } else { %>
