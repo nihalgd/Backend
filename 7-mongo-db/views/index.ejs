@@ -8,8 +8,15 @@
         <title>Project</title>
     </head>
     <body>
-        
+
         <div class="main w-full h-full bg-black text-white p-10">
+
+            <nav class="w-full mb-6">
+                <a href="/read" class="text-blue-400 hover:underline text-sm">
+                    Go to All Users →
+                </a>
+            </nav>
+
             <h1 class="text-2xl font-semibold mb-6">Create User</h1>
             <!-- Form -->
             <form action="/create" method="POST" class="flex gap-2 items-center">
@@ -41,7 +48,7 @@
                     />
 
                     <!-- Button -->
-                    <button 
+                    <button
                     type="submit"
                     class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-md transition"
                     >
