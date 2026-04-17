@@ -20,6 +20,10 @@ app.get('/login' , function(req,res){
     res.render("login")
 })
 
+app.get('/profile', isLoggedIn , function(req,res){
+    res.render("login")
+})
+
 app.post('/register' , async function(req,res){
     let { username , name , age , email , password} = req.body;
 
@@ -29,7 +33,7 @@ app.post('/register' , async function(req,res){
     bcrypt.genSalt(10 , (err,salt) => {
         bcrypt.hash(password,salt, async (err,hash) => {
 
-            let newUser = await userModel.create({   // ✅ store here
+            let newUser = await userModel.create({   
                 username , 
                 name , 
                 age , 
@@ -38,7 +42,7 @@ app.post('/register' , async function(req,res){
             });
 
             let token = jwt.sign(
-                { email: email, userid: newUser._id },  // ✅ now works
+                { email: email, userid: newUser._id },  
                 "shhhhh"
             ); 
 
@@ -54,7 +58,23 @@ app.post('/login' , async function(req,res){
     let user = await userModel.findOne({email});
     if(!user) return res.status(500).send("something went wrong");
 
-    
+    bcrypt.compare(password, user.password, function(err,result){
+        if(result) res.status(200).send("you can login");
+        else res.redirect("/login")
+    })
 });
+
+app.get('/logout' , function(req,res){
+    res.cookie("token" , "")
+    res.redirect("/login")
+})
+
+function isLoggedIn(req , res , next){
+    if(req.cookies.token === "") res.send("You must be logged in");
+    else{
+        let data = jwt.verify(req.cookies.token, "shhhhh")
+        req.user = data
+    }
+};
 
 app.listen(3000);
