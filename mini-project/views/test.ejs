@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multer Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+    <body class="bg-black to-black p-6">
+
+    <div class="w-full p-6">
+        
+        <h2 class="text-white text-2xl font-semibold mb-6">Upload File</h2>
+
+        <form class="flex flex-nowrap gap-2 items-center" action="/upload" method="post" enctype="multipart/form-data">
+        
+        <input type="file" name="image"
+            class="px-4 py-2 bg-transparent text-white rounded-md">
+
+        <button type="submit"
+            class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition duration-200">
+            Upload File
+        </button>
+
+        </form>
+
+    </div>
+
+    </body>
+</html>
